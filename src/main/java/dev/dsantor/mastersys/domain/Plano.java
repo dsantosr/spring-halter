@@ -1,15 +1,19 @@
 package dev.dsantor.mastersys.domain;
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.math.BigDecimal;
 
+@Getter
+@Setter
 @Entity
 @Table(name="planos")
 public class Plano {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
 
     private String nome;
@@ -22,44 +26,4 @@ public class Plano {
     private Modalidade modalidade;
 
     private boolean ativo = true;
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public BigDecimal getValorMensal() {
-        return valorMensal;
-    }
-
-    public void setValorMensal(BigDecimal valorMensal) {
-        this.valorMensal = valorMensal;
-    }
-
-    public Modalidade getModalidade() {
-        return modalidade;
-    }
-
-    public void setModalidade(Modalidade modalidade) {
-        this.modalidade = modalidade;
-    }
-
-    public boolean isAtivo() {
-        return ativo;
-    }
-
-    public void setAtivo(boolean ativo) {
-        ativo = ativo;
-    }
 }

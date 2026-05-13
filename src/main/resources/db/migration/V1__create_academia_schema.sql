@@ -1,5 +1,9 @@
+DROP SCHEMA public CASCADE;
+CREATE SCHEMA public;
+
 CREATE TABLE alunos(
     id BIGSERIAL PRIMARY KEY,
+    cpf VARCHAR(11) NOT NULL,
     nome VARCHAR(150) NOT NULL,
     data_nascimento DATE,
     sexo VARCHAR(1) CHECK (sexo IN ('M','F')),
@@ -8,8 +12,10 @@ CREATE TABLE alunos(
     email VARCHAR(150),
     observacao TEXT,
     endereco VARCHAR(150),
+    numero VARCHAR(5),
     complemento VARCHAR(100),
     bairro VARCHAR(100),
+    cidade VARCHAR(50),
     estado VARCHAR(2),
     cep VARCHAR(20),
     criado_em TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,

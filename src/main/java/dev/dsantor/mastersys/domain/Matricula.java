@@ -2,16 +2,20 @@ package dev.dsantor.mastersys.domain;
 
 import dev.dsantor.mastersys.enums.StatusMatricula;
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
 import org.springframework.data.annotation.CreatedDate;
 
 import java.time.LocalDate;
 
+@Getter
+@Setter
 @Entity
 @Table(name="matriculas")
 public class Matricula {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
 
     @CreatedDate
@@ -27,44 +31,4 @@ public class Matricula {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="aluno_id")
     private Aluno aluno;
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public LocalDate getDataMatricula() {
-        return dataMatricula;
-    }
-
-    public void setDataMatricula(LocalDate dataMatricula) {
-        this.dataMatricula = dataMatricula;
-    }
-
-    public LocalDate getDiaVencimento() {
-        return diaVencimento;
-    }
-
-    public void setDiaVencimento(LocalDate diaVencimento) {
-        this.diaVencimento = diaVencimento;
-    }
-
-    public StatusMatricula getStatus() {
-        return status;
-    }
-
-    public void setStatus(StatusMatricula status) {
-        this.status = status;
-    }
-
-    public Aluno getAluno() {
-        return aluno;
-    }
-
-    public void setAluno(Aluno aluno) {
-        this.aluno = aluno;
-    }
 }
