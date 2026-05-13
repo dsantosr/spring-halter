@@ -4,7 +4,7 @@ package dev.dsantor.mastersys.domain;
 import jakarta.persistence.*;
 import org.springframework.data.annotation.CreatedDate;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name="matriculas_modalidades")
@@ -15,26 +15,26 @@ public class MatriculaModalidade {
     private Long id;
 
     @Column(name="data_inicio")
-    private LocalDate dataInicio;
+    private LocalDateTime dataInicio;
 
     @CreatedDate
     @Column(name="data_fim")
-    private LocalDate datafim;
+    private LocalDateTime datafim;
 
     @ManyToOne(fetch=FetchType.LAZY)
-    @Column(name="matricula_id")
+    @JoinColumn(name="matricula_id")
     private Matricula matricula;
 
     @ManyToOne(fetch=FetchType.LAZY)
-    @Column(name="modalidade_id")
+    @JoinColumn(name="modalidade_id")
     private Modalidade modalidade;
 
     @ManyToOne(fetch=FetchType.LAZY)
-    @Column(name="plano_id")
+    @JoinColumn(name="plano_id")
     private Plano plano;
 
     @ManyToOne(fetch=FetchType.LAZY)
-    @Column(name="graduacao_id")
+    @JoinColumn(name="graduacao_id")
     private Graduacao graduacao;
 
     public Long getId() {
@@ -45,19 +45,19 @@ public class MatriculaModalidade {
         this.id = id;
     }
 
-    public LocalDate getDataInicio() {
+    public LocalDateTime getDataInicio() {
         return dataInicio;
     }
 
-    public void setDataInicio(LocalDate dataInicio) {
+    public void setDataInicio(LocalDateTime dataInicio) {
         this.dataInicio = dataInicio;
     }
 
-    public LocalDate getDatafim() {
+    public LocalDateTime getDatafim() {
         return datafim;
     }
 
-    public void setDatafim(LocalDate datafim) {
+    public void setDatafim(LocalDateTime datafim) {
         this.datafim = datafim;
     }
 

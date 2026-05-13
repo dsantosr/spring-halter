@@ -2,6 +2,8 @@ package dev.dsantor.mastersys.domain;
 
 import jakarta.persistence.*;
 
+import java.math.BigDecimal;
+
 @Entity
 @Table(name="planos")
 public class Plano {
@@ -13,13 +15,13 @@ public class Plano {
     private String nome;
 
     @Column(name="valor_mensal")
-    private Double valorMensal;
+    private BigDecimal valorMensal;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="modalidade_id")
     private Modalidade modalidade;
 
-    private boolean isAtivo = true;
+    private boolean ativo = true;
 
     public Long getId() {
         return id;
@@ -37,11 +39,11 @@ public class Plano {
         this.nome = nome;
     }
 
-    public Double getValorMensal() {
+    public BigDecimal getValorMensal() {
         return valorMensal;
     }
 
-    public void setValorMensal(Double valorMensal) {
+    public void setValorMensal(BigDecimal valorMensal) {
         this.valorMensal = valorMensal;
     }
 
@@ -54,10 +56,10 @@ public class Plano {
     }
 
     public boolean isAtivo() {
-        return isAtivo;
+        return ativo;
     }
 
     public void setAtivo(boolean ativo) {
-        isAtivo = ativo;
+        ativo = ativo;
     }
 }

@@ -28,10 +28,8 @@ public class Aluno {
     private String email;
     private String observacao;
     private String endereco;
-    private String numero;
     private String complemento;
     private String bairro;
-    private String cidade;
 
     @Column(name="estado", length = 2)
     private String estado;
@@ -39,7 +37,7 @@ public class Aluno {
 
     @CreatedDate
     @Column(name="criado_em", nullable = false, updatable = false)
-    private LocalDate criadoEm;
+    private LocalDateTime criadoEm;
 
     @LastModifiedDate
     @Column(name="atualizado_em")
@@ -117,14 +115,6 @@ public class Aluno {
         this.endereco = endereco;
     }
 
-    public String getNumero() {
-        return numero;
-    }
-
-    public void setNumero(String numero) {
-        this.numero = numero;
-    }
-
     public String getComplemento() {
         return complemento;
     }
@@ -139,14 +129,6 @@ public class Aluno {
 
     public void setBairro(String bairro) {
         this.bairro = bairro;
-    }
-
-    public String getCidade() {
-        return cidade;
-    }
-
-    public void setCidade(String cidade) {
-        this.cidade = cidade;
     }
 
     public String getEstado() {
@@ -165,11 +147,11 @@ public class Aluno {
         this.cep = cep;
     }
 
-    public LocalDate getCriadoEm() {
+    public LocalDateTime getCriadoEm() {
         return criadoEm;
     }
 
-    public void setCriadoEm(LocalDate criadoEm) {
+    public void setCriadoEm(LocalDateTime criadoEm) {
         this.criadoEm = criadoEm;
     }
 

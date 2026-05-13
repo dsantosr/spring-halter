@@ -9,7 +9,7 @@ public class Modalidade {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String nome;
-    private boolean ativo = true;
+    private boolean ativa = true;
 
     public Long getId() {
         return id;
@@ -27,11 +27,11 @@ public class Modalidade {
         this.nome = nome;
     }
 
-    public boolean isAtivo() {
-        return ativo;
+    public boolean Ativa() {
+        return ativa;
     }
 
-    public void setAtivo(boolean ativo) {
-        this.ativo = ativo;
+    public void setAtiva(boolean ativo) {
+        this.ativa = ativo;
     }
 }

@@ -19,7 +19,7 @@ public class Matricula {
     private LocalDate dataMatricula;
 
     @Column(name="data_encerramento")
-    private Integer diaVencimento;
+    private LocalDate diaVencimento;
 
     @Enumerated(EnumType.STRING)
     private StatusMatricula status = StatusMatricula.ATIVA;
@@ -44,11 +44,11 @@ public class Matricula {
         this.dataMatricula = dataMatricula;
     }
 
-    public Integer getDiaVencimento() {
+    public LocalDate getDiaVencimento() {
         return diaVencimento;
     }
 
-    public void setDiaVencimento(Integer diaVencimento) {
+    public void setDiaVencimento(LocalDate diaVencimento) {
         this.diaVencimento = diaVencimento;
     }
 
