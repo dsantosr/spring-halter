@@ -4,7 +4,7 @@ import dev.dsantor.mastersys.dto.AlunoRequest;
 import dev.dsantor.mastersys.dto.AlunoResponse;
 import dev.dsantor.mastersys.services.AlunoService;
 import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
@@ -24,8 +24,8 @@ public class AlunoController {
     }
 
     @GetMapping
-    public Page<AlunoResponse> listar(PageRequest pageRequest) {
-        return alunoService.listar(pageRequest);
+    public Page<AlunoResponse> listar(Pageable pageable) {
+        return alunoService.listar(pageable);
     }
 
     @GetMapping("/{id}")

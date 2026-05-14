@@ -1,0 +1,57 @@
+@baseUrl = http://localhost:8080
+
+### Cadastrar Aluno
+POST {{baseUrl}}/alunos
+Content-Type: application/json
+
+{
+    "nome": "Sr. Teste",
+    "cpf": "00000000011",
+    "dataNascimento": "1995-01-02",
+    "sexo": "M",
+    "telefone": "00000000011",
+    "celular": "(98)90001-0001",
+    "email": "testedasilva@gmail.com",
+    "observacao": "cuidado",
+    "endereco": "Rua dos Bobos",
+    "numero": "01",
+    "complemento": "Quadra 1",
+    "bairro": "Coroadinho",
+    "cidade": "SLZ",
+    "estado": "MA",
+    "cep": "01010101"
+}
+
+### LISTAR ALUNOS
+GET {{baseUrl}}/alunos
+
+### Listar com paginacao
+GET {{baseUrl}}/alunos?page=0&size=10&sort=nome,asc
+
+### Buscar aluno por id
+GET {{baseUrl}}/alunos/1
+
+### Atualizar aluno
+PUT {{baseUrl}}/alunos/1
+Content-Type: application/json
+
+{
+    "nome": "Sr. Teste ATUALIZADO",
+    "cpf": "00000000011",
+    "dataNascimento": "1995-01-02",
+    "sexo": "M",
+    "telefone": "00000000011",
+    "celular": "(98)90001-0001",
+    "email": "testedasilva@gmail.com",
+    "observacao": "cuidado",
+    "endereco": "Rua dos Bobos",
+    "numero": "01",
+    "complemento": "Quadra 1",
+    "bairro": "Coroadinho",
+    "cidade": "SLZ",
+    "estado": "MA",
+    "cep": "01010101"
+}
+
+### Excluir Aluno
+DELETE {{baseUrl}}/alunos/1

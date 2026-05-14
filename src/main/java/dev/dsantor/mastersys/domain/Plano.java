@@ -13,7 +13,7 @@ import java.math.BigDecimal;
 public class Plano {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String nome;
