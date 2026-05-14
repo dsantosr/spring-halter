@@ -4,6 +4,7 @@ import dev.dsantor.mastersys.domain.Aluno;
 import dev.dsantor.mastersys.dto.AlunoRequest;
 import dev.dsantor.mastersys.dto.AlunoResponse;
 import dev.dsantor.mastersys.repository.AlunoRepository;
+import jakarta.persistence.EntityNotFoundException;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -11,7 +12,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class AlunoService {
 
-    public final AlunoRepository alunoRepository;
+    private final AlunoRepository alunoRepository;
 
     public AlunoService(AlunoRepository repository) {
         this.alunoRepository = repository;
@@ -20,7 +21,7 @@ public class AlunoService {
     public AlunoResponse cadastrar(AlunoRequest alunoRequest) {
 
         if (alunoRequest.cpf() != null && alunoRepository.existsByCpf(alunoRequest.cpf())){
-            throw new RuntimeException("Já existe um aluno com esse CPF");
+            throw new EntityNotFoundException("Já existe um aluno com esse CPF");
         }
 
         Aluno aluno = alunoRequest.toEntity();

@@ -21,6 +21,7 @@ public record AlunoRequest(
         String estado,
         String cep
 ) {
+
     public Aluno toEntity(){
         Aluno aluno = new Aluno();
         preencher(aluno);
